@@ -29,6 +29,10 @@ page 50100 "Registro de Vehiculos"
                 {
                     ApplicationArea = All;
                 }
+                field("Necesita mantenimiento"; Rec."Necesita mantenimiento")
+                {
+                    ApplicationArea = All;
+                }
             }
         }
         area(Factboxes)

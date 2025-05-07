@@ -16,8 +16,14 @@ table 50100 "Registro de Vehículos"
         field(3; "Km Actual"; Integer)
         {
             DataClassification = ToBeClassified;
+
         }
         field(4; "Fecha ultimo mantenimiento"; Date)
+        {
+            DataClassification = ToBeClassified;
+            Editable = false;
+        }
+        field(5; "Necesita mantenimiento"; Boolean)
         {
             DataClassification = ToBeClassified;
             Editable = false;
@@ -45,10 +51,8 @@ table 50100 "Registro de Vehículos"
 
     end;
 
-    trigger OnModify()
-    begin
 
-    end;
+
 
     trigger OnDelete()
     begin
