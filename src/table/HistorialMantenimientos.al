@@ -21,8 +21,8 @@ table 50101 "Historial Mantenimientos"
             var
                 vehiculo: Record "Registro de Vehículos";
             begin
-                vehiculo.SetRange("Matricula", Rec.Vehiculo);
-                vehiculo."Fecha ultimo mantenimiento" := Fecha;
+                if vehiculo.Get(Rec.Vehiculo) then
+                    vehiculo."Fecha ultimo mantenimiento" := Fecha;
                 vehiculo.Modify(true);
             end;
         }
@@ -46,15 +46,19 @@ table 50101 "Historial Mantenimientos"
 
     fieldgroups
     {
-        // Add changes to field groups here
+
     }
 
     var
         myInt: Integer;
 
     trigger OnInsert()
+    var
+        v: Record "Registro de Vehículos";
     begin
-
+        v.Get(Rec.Vehiculo);
+        v."Km Actual" := 0;
+        v.Modify(true);
     end;
 
     trigger OnModify()

@@ -39,13 +39,38 @@ page 50101 "Tarjeta Vehiculo"
     {
         area(Processing)
         {
-            action(ActionName)
+            action("Ver historial mantenimientos")
             {
+                ApplicationArea = All;
+                Promoted = true;
+                PromotedCategory = Process;
+                Image = GetOrder;
+
+                RunObject = page "Historial Mantenimientos";
+                RunPageLink = Vehiculo = field(Matricula);
+                RunPageMode = View;
+
+
+            }
+            action("Sacar a circular")
+            {
+                ApplicationArea = All;
+                Promoted = true;
+                PromotedCategory = Process;
+                Image = CreditCard;
 
                 trigger OnAction()
+                var
+                    v: Record "Registro de Vehículos";
                 begin
+                    v.Get(Rec.Matricula);
+                    v."Km Actual" += 1000;
+                    v.Modify();
 
+
+                    Message('El %1 ha salido a circular, se han sumado los km recorridos', Rec.Tipo);
                 end;
+
             }
         }
     }

@@ -4,6 +4,8 @@ page 50100 "Registro de Vehiculos"
     ApplicationArea = All;
     UsageCategory = Lists;
     SourceTable = "Registro de Vehículos";
+    CardPageId = 50101;
+
 
     layout
     {
@@ -39,12 +41,19 @@ page 50100 "Registro de Vehiculos"
     {
         area(Processing)
         {
-            action(ActionName)
+            action("Ver Vehiculo")
             {
+                ApplicationArea = All;
+                Promoted = true;
+                PromotedCategory = Process;
+                Image = GoTo;
 
                 trigger OnAction()
+                var
+                    v: Record "Registro de Vehículos";
                 begin
-
+                    v.SetRange("Matricula", Rec.Matricula);
+                    Page.Run(Page::"Tarjeta Vehiculo", v);
                 end;
             }
         }
