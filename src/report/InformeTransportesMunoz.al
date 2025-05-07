@@ -13,13 +13,17 @@ report 50100 "Informe Transportes Muñoz"
         {
             column(Matricula; Matricula) { }
             column(Tipo; Tipo) { }
-            column(Coste_medio; "Coste medio") { }
+            column(Coste_medio; "Coste medio") { DecimalPlaces = 2 : 4; }
             column(Total_Mantenimientos; "Total Mantenimientos") { }
             trigger OnPreDataItem()
             begin
                 if (codV <> '') then begin
                     SetRange("Matricula", codV);
+
                 end;
+                if (tipoFiltro = tipoFiltro::Camion) or (tipoFiltro = tipoFiltro::Furgoneta)
+                then
+                    SetRange(Tipo, tipoFiltro);
             end;
         }
 
@@ -58,4 +62,5 @@ report 50100 "Informe Transportes Muñoz"
 
     var
         codV: Text[20];
+        tipoFiltro: Enum "Tipos Vehiculos";
 }

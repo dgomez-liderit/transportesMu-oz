@@ -32,6 +32,7 @@ table 50100 "Registro de Vehículos"
         {
             DataClassification = ToBeClassified;
             Editable = false;
+            DecimalPlaces = 0 : 2;
         }
         field(7; "Total Mantenimientos"; Integer)
         {
