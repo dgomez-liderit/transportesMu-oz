@@ -80,27 +80,10 @@ page 50101 "Tarjeta Vehiculo"
         }
     }
     trigger OnAfterGetRecord()
-
+    var
+        calculador_mantenimiento: Codeunit "Calculador Mantenimiento";
     begin
+        calculador_mantenimiento.CalcularMantenimiento(Rec);
 
-        Rec."Necesita mantenimiento" := false;
-
-
-        if Rec.Tipo = Rec.Tipo::Furgoneta then begin
-            if Rec."Km Actual" >= 8000 then begin
-                Rec."Necesita mantenimiento" := true;
-                Message('La furgoneta %1 necesita mantenimiento (KM: %2)', Rec.Matricula, Rec."Km Actual");
-            end;
-        end
-        else if Rec.Tipo = Rec.Tipo::Camion then begin
-            if Rec."Km Actual" >= 9500 then begin
-                Rec."Necesita mantenimiento" := true;
-                Message('El camión %1 necesita mantenimiento (KM: %2)', Rec.Matricula, Rec."Km Actual");
-            end;
-        end;
-
-
-        if Rec."Necesita mantenimiento" then
-            Rec.Modify(true);
     end;
 }

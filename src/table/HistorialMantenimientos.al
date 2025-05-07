@@ -58,6 +58,7 @@ table 50101 "Historial Mantenimientos"
     begin
         v.Get(Rec.Vehiculo);
         v."Km Actual" := 0;
+        v."Necesita mantenimiento" := false;
         v.Modify(true);
     end;
 
