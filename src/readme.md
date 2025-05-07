@@ -1,0 +1,7 @@
+MANUAL USO DESARROLLO TRANSPORTES MUÑOZ
+
+En la extension ofrecida en este desarrollo permite a la empresa registrar sus vehiculos buscando Registro de Vehiculos en el buscador.
+Permite asignar cosas basicas como la matricula y el tipo , hay campos como los km actuales o fecha ultimo mantenimiento que se calcularan auto al insertar algo n historial de mantenimientos , la extension avisa automaticamente en la ficha de un vehiculo cuando sobrepasa los km de autonomia antes del mantenimiento , recordando que hay que pasarlo y registrarlo en BC.
+Desde el historial de mantenimientos se ira calculando dinamicamente el coste medio del vehiculo segun los km que recorrio y los mantenimientos realizados , pasandole la fecha del ultimo a la ficha del vehiculo .
+En el informe el usuario podra ver los datos y el coste de un vehiculo filtrado por matricula , o si desea comparar vehiculos del mismo tipo podra ver esos datos y el total de mantenimientos filtrando por tipo de vehiculo . 
+Por ultimo , en el rolecenter hay un campo añadido que marca en verde avisando si no hay mantenimientos que pasar , en amarillo si hay que pasar uno , y en rojo si hay que pasar mas de 1 , informando con un golpe de vista de las necesidades de mantenimiento de vehiculos de Transportes Muñoz
