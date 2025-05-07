@@ -1,20 +1,27 @@
-/*
+
 report 50100 "Informe Transportes Muñoz"
 {
     UsageCategory = ReportsAndAnalysis;
     ApplicationArea = All;
-    DefaultRenderingLayout = LayoutName;
+    DefaultLayout = RDLC;
+    RDLCLayout = 'InformeTransportesMunoz.rdl';
     Caption = 'Informe Transportes Muñoz';
 
     dataset
     {
-        dataitem(DataItemName; SourceTableName)
+        dataitem(DataItemName; "Registro de Vehículos")
         {
-            column(ColumnName; SourceFieldName)
-            {
-
-            }
+            column(Matricula; Matricula) { }
+            column(Coste_medio; "Coste medio") { }
+            column(Total_Mantenimientos; "Total Mantenimientos") { }
+            trigger OnPreDataItem()
+            begin
+                if (codV <> '') then begin
+                    SetRange("Matricula", codV);
+                end;
+            end;
         }
+
     }
 
     requestpage
@@ -25,11 +32,12 @@ report 50100 "Informe Transportes Muñoz"
         {
             area(Content)
             {
-                group(GroupName)
+                group(Filtros)
                 {
-                    field(Name; SourceExpression)
+                    field("Filtrado por matricula"; codV)
                     {
-
+                        ApplicationArea = All;
+                        TableRelation = "Registro de Vehículos".Matricula;
                     }
                 }
             }
@@ -47,15 +55,6 @@ report 50100 "Informe Transportes Muñoz"
         }
     }
 
-    rendering
-    {
-        layout(LayoutName)
-        {
-            Type = Excel;
-            LayoutFile = 'mySpreadsheet.xlsx';
-        }
-    }
-
     var
-        myInt: Integer;
-}*/
+        codV: Text[20];
+}
