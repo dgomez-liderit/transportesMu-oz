@@ -21,9 +21,7 @@ report 50100 "Informe Transportes Muñoz"
                     SetRange("Matricula", codV);
 
                 end;
-                if (tipoFiltro = tipoFiltro::Camion) or (tipoFiltro = tipoFiltro::Furgoneta)
-                then
-                    SetRange(Tipo, tipoFiltro);
+
             end;
         }
 
@@ -62,5 +60,5 @@ report 50100 "Informe Transportes Muñoz"
 
     var
         codV: Text[20];
-        tipoFiltro: Enum "Tipos Vehiculos";
+
 }
