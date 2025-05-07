@@ -20,6 +20,7 @@ table 50100 "Registro de Vehículos"
         field(4; "Fecha ultimo mantenimiento"; Date)
         {
             DataClassification = ToBeClassified;
+            Editable = false;
         }
     }
 
