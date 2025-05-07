@@ -19,11 +19,9 @@ table 50101 "Historial Mantenimientos"
             DataClassification = ToBeClassified;
             trigger OnValidate()
             var
-                vehiculo: Record "Registro de Vehículos";
+                controlFechas: Codeunit "Control Fechas";
             begin
-                if vehiculo.Get(Rec.Vehiculo) then
-                    vehiculo."Fecha ultimo mantenimiento" := Fecha;
-                vehiculo.Modify(true);
+                controlFechas.controlarFechaUltimoMantenimiento(Rec);
             end;
         }
         field(4; Coste; Decimal)
