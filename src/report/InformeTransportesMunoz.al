@@ -12,6 +12,7 @@ report 50100 "Informe Transportes Muñoz"
         dataitem(DataItemName; "Registro de Vehículos")
         {
             column(Matricula; Matricula) { }
+            column(Tipo; Tipo) { }
             column(Coste_medio; "Coste medio") { }
             column(Total_Mantenimientos; "Total Mantenimientos") { }
             trigger OnPreDataItem()
