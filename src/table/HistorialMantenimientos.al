@@ -54,12 +54,9 @@ table 50101 "Historial Mantenimientos"
 
     trigger OnInsert()
     var
-        v: Record "Registro de Vehículos";
+        v: Codeunit "Calculador Mantenimiento";
     begin
-        v.Get(Rec.Vehiculo);
-        v."Km Actual" := 0;
-        v."Necesita mantenimiento" := false;
-        v.Modify(true);
+        v.CalcularCosteMedioVehiculo(Rec);
     end;
 
     trigger OnModify()

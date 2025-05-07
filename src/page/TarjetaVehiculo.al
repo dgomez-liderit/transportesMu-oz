@@ -32,6 +32,10 @@ page 50101 "Tarjeta Vehiculo"
                 {
                     ApplicationArea = All;
                 }
+                field("Total Mantenimientos"; Rec."Total Mantenimientos")
+                {
+                    ApplicationArea = All;
+                }
             }
         }
         area(Factboxes)

@@ -28,6 +28,16 @@ table 50100 "Registro de Vehículos"
             DataClassification = ToBeClassified;
             Editable = false;
         }
+        field(6; "Coste medio"; Decimal)
+        {
+            DataClassification = ToBeClassified;
+            Editable = false;
+        }
+        field(7; "Total Mantenimientos"; Integer)
+        {
+            DataClassification = ToBeClassified;
+            Editable = false;
+        }
     }
 
     keys
